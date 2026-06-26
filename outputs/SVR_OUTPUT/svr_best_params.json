@@ -1,0 +1,9 @@
+{
+  "best_params": {
+    "kernel": "rbf",
+    "gamma": "scale",
+    "epsilon": 0.01,
+    "C": 1
+  },
+  "best_score": -1.3790302867276907
+}

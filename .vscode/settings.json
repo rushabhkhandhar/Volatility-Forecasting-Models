@@ -1,0 +1,9 @@
+{
+  "python.defaultInterpreterPath": "/Users/rushabhkhandhar/.pyenv/versions/3.9.6/bin/python3",
+  "python.analysis.extraPaths": [
+    "/Users/rushabhkhandhar/.pyenv/versions/3.9.6/lib/python3.9/site-packages"
+  ],
+  "python.pythonPath": "/Users/rushabhkhandhar/.pyenv/versions/3.9.6/bin/python3",
+  "python-envs.defaultEnvManager": "ms-python.python:pyenv",
+  "python-envs.pythonProjects": []
+}

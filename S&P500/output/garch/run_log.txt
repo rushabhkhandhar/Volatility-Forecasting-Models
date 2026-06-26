@@ -1,0 +1,189 @@
+
+
+=== Run at 2025-08-22T18:07:21.555719 ===
+Downloading OHLC data from Yahoo Finance for ^GSPC from 2022-01-01 to 2025-08-20...
+Downloading VIX data...
+/Users/rushabhkhandhar/Desktop/JPMC/Volatility_forecasting_model/S&P500/garch.py:112: FutureWarning: YF.download() has changed argument auto_adjust default to True
+  vix_raw = yf.download('^VIX', start=start_date, end=end_date, progress=False)
+=== Phase 1: Data Preparation & EDA Summary ===
+Data source: Yahoo Finance ticker=^GSPC, start=2022-01-01, end=2025-08-20
+Data points (unique dates): 910
+
+Descriptive statistics for daily log returns:
+Mean: 3.192233e-04
+Std: 1.154386e-02
+Skewness: 0.075804
+Kurtosis (excess): 6.222593
+
+Jarque-Bera test for normality of log returns:
+JB statistic: 1448.259258, p-value: 0.000000e+00
+
+Generated plots saved to:
+ - S&P500/output/garch/sp500_prices.png
+ - S&P500/output/garch/sp500_log_returns.png
+ - S&P500/output/garch/sp500_21d_annualized_realized_vol.png
+ - S&P500/output/garch/sp500_log_returns_hist.png
+ - S&P500/output/garch/acf_squared_log_returns_sp500.png
+
+Fitting GARCH(1,1) (Student-t) to rescaled returns...
+                        Constant Mean - GARCH Model Results                         
+====================================================================================
+Dep. Variable:                    LogReturn   R-squared:                       0.000
+Mean Model:                   Constant Mean   Adj. R-squared:                  0.000
+Vol Model:                            GARCH   Log-Likelihood:               -1291.24
+Distribution:      Standardized Student's t   AIC:                           2592.48
+Method:                  Maximum Likelihood   BIC:                           2616.54
+                                              No. Observations:                  909
+Date:                      Fri, Aug 22 2025   Df Residuals:                      908
+Time:                              18:07:23   Df Model:                            1
+                                Mean Model                                
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+mu             0.0962  2.857e-02      3.368  7.560e-04 [4.024e-02,  0.152]
+                              Volatility Model                              
+============================================================================
+                 coef    std err          t      P>|t|      95.0% Conf. Int.
+----------------------------------------------------------------------------
+omega          0.0227  1.018e-02      2.226  2.600e-02 [2.709e-03,4.260e-02]
+alpha[1]       0.1061  2.347e-02      4.520  6.184e-06   [6.008e-02,  0.152]
+beta[1]        0.8787  2.218e-02     39.623      0.000     [  0.835,  0.922]
+                              Distribution                              
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+nu             7.6659      1.910      4.014  5.966e-05 [  3.923, 11.409]
+========================================================================
+
+Covariance estimator: robust
+
+Searching for best GJR-GARCH orders (Skewed Student-t) by AIC and Ljung-Box on squared std residuals...
+  Order (1,1,0): AIC = 2705.021, min_LB_p = 0.0000
+  Order (1,1,1): AIC = 2551.560, min_LB_p = 0.1708
+  Order (1,1,2): AIC = 2553.560, min_LB_p = 0.1708
+  Order (1,1,3): AIC = 2555.560, min_LB_p = 0.1708
+  Order (1,1,5): AIC = 2559.560, min_LB_p = 0.1708
+  Order (2,1,1): AIC = 2553.560, min_LB_p = 0.1708
+  Order (2,1,2): AIC = 2555.560, min_LB_p = 0.1708
+  Order (2,1,3): AIC = 2557.560, min_LB_p = 0.1708
+  Order (2,1,5): AIC = 2561.560, min_LB_p = 0.1708
+  Order (3,1,1): AIC = 2555.560, min_LB_p = 0.1708
+  Order (3,1,2): AIC = 2557.560, min_LB_p = 0.1708
+  Order (3,1,3): AIC = 2559.560, min_LB_p = 0.1708
+  Order (3,1,5): AIC = 2563.560, min_LB_p = 0.1708
+  Order (5,1,1): AIC = 2559.360, min_LB_p = 0.1593
+  Order (5,1,2): AIC = 2561.360, min_LB_p = 0.1593
+  Order (5,1,3): AIC = 2563.360, min_LB_p = 0.1593
+  Order (5,1,5): AIC = 2567.360, min_LB_p = 0.1593
+
+Best GJR by AIC: order=(1, 1, 1) AIC=2551.560
+Best GJR by LB (max min p): order=(2, 1, 5) min_LB_p=0.1708
+
+Searching for best EGARCH orders (Student-t) by AIC and Ljung-Box...
+  EGARCH Order (1,1): AIC = 2591.364, min_LB_p = 0.0003
+  EGARCH Order (1,2): AIC = 2593.248, min_LB_p = 0.0006
+  EGARCH Order (1,3): AIC = 2595.248, min_LB_p = 0.0006
+  EGARCH Order (1,5): AIC = 2599.248, min_LB_p = 0.0006
+  EGARCH Order (2,1): AIC = 2593.084, min_LB_p = 0.0002
+  EGARCH Order (2,2): AIC = 2594.589, min_LB_p = 0.0004
+  EGARCH Order (2,3): AIC = 2596.589, min_LB_p = 0.0004
+  EGARCH Order (2,5): AIC = 2600.589, min_LB_p = 0.0004
+  EGARCH Order (3,1): AIC = 2589.216, min_LB_p = 0.0513
+  EGARCH Order (3,2): AIC = 2591.049, min_LB_p = 0.0420
+  EGARCH Order (3,3): AIC = 2593.049, min_LB_p = 0.0429
+  EGARCH Order (3,5): AIC = 2596.335, min_LB_p = 0.0706
+  EGARCH Order (5,1): AIC = 2592.893, min_LB_p = 0.0673
+  EGARCH Order (5,2): AIC = 2594.702, min_LB_p = 0.0589
+  EGARCH Order (5,3): AIC = 2594.917, min_LB_p = 0.0164
+  EGARCH Order (5,5): AIC = 2596.742, min_LB_p = 0.0718
+
+Best EGARCH by AIC: order=(3, 1) AIC=2589.216
+Best EGARCH by LB (max min p): order=(5, 5) min_LB_p=0.0718
+
+Selected model for diagnostics/backtest: GJR_skewt_LBbest((2, 1, 5)) (GJR LB-min-p=0.1708, EG LB-min-p=0.0718)
+
+Summary model comparison (AIC, BIC, LogLik)
+ GARCH_t     : AIC=2592.480627069382, BIC=2616.5423525402693, LogLik=-1291.240313534691
+ GARCH_norm  : AIC=2619.4783020977675, BIC=2638.727682474477, LogLik=-1305.7391510488837
+ GJR_t       : AIC=None, BIC=None, LogLik=None
+ GJR_skewt   : AIC=2551.560350385491, BIC=2585.2467660447332, LogLik=-1268.7801751927454
+ EGARCH_t    : AIC=2589.216307758978, BIC=2622.9027234182204, LogLik=-1287.608153879489
+
+Running post-estimation diagnostics on the selected model (std residuals)
+Saved ACF plot of squared standardized residuals to: S&P500/output/garch/acf_squared_std_resid_GJR_skewt_LBbest((2, 1, 5)).png
+
+Ljung-Box test (on squared standardized residuals):
+      lb_stat  lb_pvalue
+5    7.746651   0.170762
+10  10.911686   0.364440
+20  15.362168   0.755323
+ Lag 5: p-value = 0.1708
+ Lag 10: p-value = 0.3644
+ Lag 20: p-value = 0.7553
+
+Starting Phase 3: Backtesting (rolling one-step-ahead forecasts)
+Using Garman-Klass estimator (OHLC present) as realized variance in backtest.
+Backtest sample sizes: train=727, test=182
+
+Backtest results over 182 days (variance scale, percent^2): RMSE=2.539989, MAE=1.173590
+
+Mincer-Zarnowitz regression results (Actual_Variance ~ const + Forecast_Variance):
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        Actual_Variance   R-squared:                       0.344
+Model:                            OLS   Adj. R-squared:                  0.340
+Method:                 Least Squares   F-statistic:                     94.26
+Date:                Fri, 22 Aug 2025   Prob (F-statistic):           3.47e-18
+Time:                        18:07:28   Log-Likelihood:                -422.58
+No. Observations:                 182   AIC:                             849.2
+Df Residuals:                     180   BIC:                             855.6
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                -0.4862      0.238     -2.043      0.043      -0.956      -0.017
+Forecast_Variance     0.9329      0.096      9.709      0.000       0.743       1.123
+==============================================================================
+Omnibus:                      239.858   Durbin-Watson:                   0.900
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            18374.253
+Skew:                           5.333   Prob(JB):                         0.00
+Kurtosis:                      51.054   Cond. No.                         3.44
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+MZ tests: Intercept=-4.862396e-01 (t=-2.043, p=0.043), Slope=9.329451e-01 (t=-0.698 vs 1, p=0.486)
+Applying recalibration: Recalibrated = -4.862396e-01 + 9.329451e-01 * Forecast_Variance
+
+Recalibrated backtest results over 182 days (variance scale, percent^2): RMSE=2.466772, MAE=0.936499
+
+Mincer-Zarnowitz regression on recalibrated forecasts:
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        Actual_Variance   R-squared:                       0.344
+Model:                            OLS   Adj. R-squared:                  0.340
+Method:                 Least Squares   F-statistic:                     94.26
+Date:                Fri, 22 Aug 2025   Prob (F-statistic):           3.47e-18
+Time:                        18:07:28   Log-Likelihood:                -422.58
+No. Observations:                 182   AIC:                             849.2
+Df Residuals:                     180   BIC:                             855.6
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+=========================================================================================
+                            coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                  1.021e-15      0.210   4.86e-15      1.000      -0.414       0.414
+Recalibrated_Forecast     1.0000      0.103      9.709      0.000       0.797       1.203
+==============================================================================
+Omnibus:                      239.858   Durbin-Watson:                   0.900
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            18374.253
+Skew:                           5.333   Prob(JB):                         0.00
+Kurtosis:                      51.054   Cond. No.                         2.48
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Saved final forecasts CSV to: S&P500/output/garch/final_volatility_forecasts.csv
+Saved final comparison plot to: S&P500/output/garch/final_volatility_forecasts.png

@@ -1,0 +1,58 @@
+MZ regression for GARCH (GJR):
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        Actual_Variance   R-squared:                       0.343
+Model:                            OLS   Adj. R-squared:                  0.339
+Method:                 Least Squares   F-statistic:                     92.45
+Date:                Fri, 22 Aug 2025   Prob (F-statistic):           7.13e-18
+Time:                        18:39:31   Log-Likelihood:                -417.08
+No. Observations:                 179   AIC:                             838.2
+Df Residuals:                     177   BIC:                             844.5
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===========================================================================================
+                              coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+const                      -0.4910      0.242     -2.025      0.044      -0.970      -0.013
+GARCH_Forecast_Variance     0.9339      0.097      9.615      0.000       0.742       1.126
+==============================================================================
+Omnibus:                      235.202   Durbin-Watson:                   0.900
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            17449.405
+Skew:                           5.287   Prob(JB):                         0.00
+Kurtosis:                      50.199   Cond. No.                         3.47
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Test intercept=0: t=-2.0250, p=0.04436
+Test slope=1: t=-0.6810, p=0.4968
+
+MZ regression for SVR:
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        Actual_Variance   R-squared:                       0.115
+Model:                            OLS   Adj. R-squared:                  0.110
+Method:                 Least Squares   F-statistic:                     23.02
+Date:                Fri, 22 Aug 2025   Prob (F-statistic):           3.39e-06
+Time:                        18:39:31   Log-Likelihood:                -443.75
+No. Observations:                 179   AIC:                             891.5
+Df Residuals:                     177   BIC:                             897.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+=========================================================================================
+                            coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                    -0.7230      0.418     -1.728      0.086      -1.549       0.103
+SVR_Forecast_Variance     4.0709      0.848      4.798      0.000       2.397       5.745
+==============================================================================
+Omnibus:                      283.781   Durbin-Watson:                   0.889
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            31089.751
+Skew:                           7.336   Prob(JB):                         0.00
+Kurtosis:                      65.874   Cond. No.                         4.65
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Test intercept=0: t=-1.7280, p=0.08574
+Test slope=1: t=3.6196, p=0.000385
+

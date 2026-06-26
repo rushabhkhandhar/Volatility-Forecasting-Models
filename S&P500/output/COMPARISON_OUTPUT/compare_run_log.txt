@@ -1,0 +1,11 @@
+
+=== Comparison run ===
+Saved comparison CSV to: S&P500/output/COMPARISON_OUTPUT/comparison_final.csv
+Metrics saved to: S&P500/output/COMPARISON_OUTPUT/metrics_summary.csv
+      Model  RMSE_variance  MAE_variance
+GARCH (GJR)       2.560779      1.187805
+        SVR       3.045827      0.734620
+Diebold-Mariano test (squared errors) saved to: S&P500/output/COMPARISON_OUTPUT/dm_test.csv
+DM stat=-0.912772, p-value=0.362597
+Saved Mincer-Zarnowitz summaries to: S&P500/output/COMPARISON_OUTPUT/mz_regression_summaries.txt
+Saved annualized volatility comparison plot to: S&P500/output/COMPARISON_OUTPUT/comparison_volatility_plot.png

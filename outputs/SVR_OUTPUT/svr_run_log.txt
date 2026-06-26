@@ -1,0 +1,29 @@
+
+=== SVR Feature Engineering run ===
+Attempting to download ^NSEI and ^INDIAVIX from Yahoo Finance (2022-01-01 to 2025-08-20)...
+Downloaded Nifty rows: 897; merged range after reindex: 2022-01-03 00:00:00 to 2025-08-20 00:00:00 (rows=948)
+Downloaded data and prepared DataFrame from yfinance.
+Final prepared df index range: 2022-01-03 00:00:00 to 2025-08-20 00:00:00 (rows=948) using source=yfinance
+ADF LogReturn: stat=-31.9608, p=0
+ADF SqReturn: stat=-8.7237, p=3.333e-14
+Rows after preprocessing (with LogReturn): 948
+Rows after feature engineering (X/y): 940
+Feature columns: ['Sq_Return_Lag_1', 'Sq_Return_Lag_2', 'Sq_Return_Lag_3', 'Sq_Return_Lag_4', 'Sq_Return_Lag_5', 'Return_Lag_1', 'Return_Lag_2', 'Return_Lag_3', 'Return_Lag_4', 'Return_Lag_5', 'India_VIX_Lag_1']
+Saved feature dataset to: outputs/SVR_OUTPUT/svr_feature_dataset.csv
+Train/Test split index used: 752 (train rows: 752, test rows: 188)
+Saved X_train_scaled: outputs/SVR_OUTPUT/X_train_scaled.csv
+Saved X_test_scaled: outputs/SVR_OUTPUT/X_test_scaled.csv
+Saved y_train: outputs/SVR_OUTPUT/y_train.csv
+Saved y_test: outputs/SVR_OUTPUT/y_test.csv
+Saved scaler pickle to: outputs/SVR_OUTPUT/scaler.pkl
+Saved RandomizedSearchCV best params to: outputs/SVR_OUTPUT/svr_best_params.json
+Saved best model pickle to: outputs/SVR_OUTPUT/svr_best_model.pkl
+Saved CV results to: outputs/SVR_OUTPUT/svr_cv_results.csv
+Saved rolling SVR forecasts to: outputs/SVR_OUTPUT/svr_rolling_forecasts.csv
+Saved SVR time-series plot to: outputs/SVR_OUTPUT/svr_actual_vs_forecast.png
+SVR diagnostics: overall RMSE=1.523250, Pearson_r=0.1014 (p=0.1662)
+Saved scatter plot to: outputs/SVR_OUTPUT/svr_scatter_actual_vs_forecast_variance.png
+Saved decile RMSE to: outputs/SVR_OUTPUT/svr_decile_rmse.csv
+Saved SVR(sqrt-target) rolling forecasts to: outputs/SVR_OUTPUT/svr_rolling_forecasts_sqrttrained.csv
+SVR(sqrt-target) RMSE (variance scale) = 1.529680
+Saved SVR(sqrt) scatter to: outputs/SVR_OUTPUT/svr_sqrt_scatter_actual_vs_forecast_variance.png
