@@ -44,21 +44,12 @@ The goal is to predict the realized variance of an asset (e.g., S&P 500) using h
 
 ---
 
-## Presentation Content (For PPT)
-
-Use the following outline and content to create your presentation.
-
-### Slide 1: Title Slide
-- **Title:** Volatility Forecasting: Machine Learning vs. Econometrics
-- **Subtitle:** A Comparative Analysis of SVR and GARCH Models
-- **Presenter:** [Your Name]
-
-### Slide 2: Objective
+ Objective
 - **Goal:** Forecast the daily variance (volatility) of financial assets.
 - **Problem:** Volatility is latent (not directly observable) and clusters over time.
 - **Approach:** Compare a data-driven Machine Learning approach (SVR) against a standard industry benchmark (GARCH).
 
-### Slide 3: Methodology
+Methodology
 - **Data Source:** Yahoo Finance (Daily OHLC data).
 - **Target Variable:** Realized Variance (Proxied by Squared Log Returns).
 - **Data Processing:**
@@ -66,7 +57,7 @@ Use the following outline and content to create your presentation.
   - Feature scaling (StandardScaler).
   - Time-series splitting for validation.
 
-### Slide 4: Models Implemented
+ Models Implemented
 - **Baseline Model: GARCH (GJR-GARCH)**
   - Captures leverage effects (asymmetry in volatility response to shocks).
   - Standard econometric tool for volatility modeling.
@@ -75,7 +66,7 @@ Use the following outline and content to create your presentation.
   - Maps inputs to high-dimensional feature space.
   - Robust to outliers via the epsilon-insensitive loss function.
 
-### Slide 5: SVR Model Configuration
+ SVR Model Configuration
 - **Kernel:** Radial Basis Function (RBF) - captures non-linear relationships.
 - **Hyperparameters (Optimized):**
   - `C` (Regularization): 1
@@ -83,7 +74,7 @@ Use the following outline and content to create your presentation.
   - `gamma`: Scale
 - **Features Used:** Lagged Log Returns, Lagged Squared Returns.
 
-### Slide 6: Performance Comparison (Key Results)
+ Performance Comparison (Key Results)
 *Lower values indicate better performance.*
 
 | Metric | GARCH (Benchmark) | SVR (Proposed) | Improvement |
@@ -93,7 +84,7 @@ Use the following outline and content to create your presentation.
 
 **Observation:** The SVR model consistently achieves lower error rates compared to the GARCH model.
 
-### Slide 7: Statistical Significance
+ Statistical Significance
 - **Test Used:** Diebold-Mariano (DM) Test.
 - **Hypothesis:** Tests if the difference in predictive accuracy is significant.
 - **Result:**
@@ -101,7 +92,7 @@ Use the following outline and content to create your presentation.
   - **p-value:** 0.021
 - **Conclusion:** Since p < 0.05, we reject the null hypothesis. The SVR model's superior performance is **statistically significant**.
 
-### Slide 8: Conclusion
+ Conclusion
 - **Summary:** SVR outperforms GARCH in forecasting daily variance for the tested period.
 - **Key Findings:**
   - Machine Learning models can capture complex volatility dynamics better than rigid parametric models.
